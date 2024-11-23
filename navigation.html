@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Interactive Navigation Menu</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            padding-top: 70px; 
+            overflow-x: hidden;
+        }
+
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #ff6a6a, #ffb86c);
+            color: white;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 30px;
+            transition: background 0.4s ease, box-shadow 0.3s ease;
+        }
+
+      
+        nav.scrolled {
+            background: linear-gradient(90deg, #6a5aff, #6affd0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+       
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+       
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: -1;
+            transition: left 0.4s ease;
+        }
+
+        nav a:hover::before {
+            left: 0;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            color: #222;
+        }
+
+       
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: white;
+            padding: 10px 20px;
+            white-space: nowrap;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: #444;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+       
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        section:nth-child(odd) {
+            background: linear-gradient(135deg, #6a5aff, #ff6a6a);
+        }
+
+        section:nth-child(even) {
+            background: linear-gradient(135deg, #6affd0, #ffb86c);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <div class="dropdown">
+            <a href="#more">More</a>
+            <div class="dropdown-content">
+                <a href="#gallery">Gallery</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sections for Demonstration -->
+    <section id="home">Welcome to the Home Section</section>
+    <section id="about">About Our Story</section>
+    <section id="services">Our Services</section>
+    <section id="gallery">Photo Gallery</section>
+    <section id="testimonials">What People Say</section>
+    <section id="contact">Contact Us</section>
+
+    <script>
+        
+        const nav = document.getElementById('mainNav');
+
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 70; // Adjust for nav height
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

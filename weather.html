@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #e0e0e0;
+        }
+        .weather-container {
+            width: 350px;
+            background: linear-gradient(to bottom, #8ec5fc, #e0c3fc);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .search-bar {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 10px 0 0 10px;
+            outline: none;
+            font-size: 16px;
+        }
+        .search-bar button {
+            padding: 10px;
+            border: none;
+            background-color: #6a11cb;
+            color: white;
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+            outline: none;
+        }
+        .weather-details {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .weather-details h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .weather-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .weather-icon {
+            font-size: 48px;
+        }
+        .additional-info {
+            text-align: left;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-container">
+        <div class="search-bar">
+            <input type="text" id="location" placeholder="Enter Location">
+            <button onclick="getWeather()">&#128269;</button>
+        </div>
+        <div class="weather-details" id="weatherDetails">
+            <h2>Your Location</h2>
+            <div class="weather-info">
+                <div>
+                    <h3 id="temperature">30°C | 73°F</h3>
+                    <p id="description">Cloudy</p>
+                </div>
+                <div class="weather-icon">
+                    &#9729; <!-- Replace with a weather icon -->
+                </div>
+            </div>
+            <div class="additional-info">
+                <p>Humidity: <span id="humidity">60%</span></p>
+                <p>Precipitation: <span id="precipitation">4%</span></p>
+                <p>Wind Speed: <span id="windSpeed">6.2 km/h</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getWeather() {
+            const location = document.getElementById('location').value;
+            if (location) {
+             
+                alert(`Fetching weather data for ${location}...`);
+               
+                document.getElementById('weatherDetails').innerHTML = `
+                    <h2>${location}</h2>
+                    <div class="weather-info">
+                        <div>
+                            <h3>30°C | 73°F</h3>
+                            <p>Cloudy</p>
+                        </div>
+                        <div class="weather-icon">
+                            &#9729; <!-- Replace with appropriate icon -->
+                        </div>
+                    </div>
+                    <div class="additional-info">
+                        <p>Humidity: 60%</p>
+                        <p>Precipitation: 4%</p>
+                        <p>Wind Speed: 6.2 km/h</p>
+                    </div>
+                `;
+            } else {
+                alert('Please enter a location.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAPPS</title>
+    <style>
+       *{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+   background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.navbar{
+    width: 1300px;
+    height: 75px;
+    margin: auto;
+}
+
+.icon{
+    width: 300px;
+    float: left;
+    height: 70px;
+}
+
+.logo{
+    color: hwb(27 0% 0% / 0.878);
+    font-size: 35px;
+    font-family: Arial;
+    padding-left: 20px;
+    float: left;
+    padding-top: 25px;
+    margin-top: 25px
+}
+.menu{
+    width:400px;
+    float:left;
+    height:70px;
+    padding-top: 30px;
+}
+ul{
+    float:left;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+ul li{
+    margin-left: 60px;
+    margin-top: 25px;
+    font-size:20px;
+}
+ul li a{
+text-decoration:none;
+color:blue;
+font-family: Arial, Helvetica, sans-serif;
+font-weight:bold;
+transition:0.4s ease-in-out;
+}
+ul li a:hover{
+    color:hsla(120, 100%, 25%, 0.923);
+}
+.search{
+    width:330px;
+    float:left;
+    margin-left: 270px;
+}
+.srch{
+      font-family: 'Times New Roman', Times, serif;
+      width: 150px;
+      height:20px;
+      background: transparent;
+      border:1px solid orange;
+      margin-top: 13px;
+      color:white;
+      border-right:none;
+      font-size:15px;
+      float:left;
+      padding:10px;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+    
+    }
+.btn{
+    width:100px;
+    height:41px;
+    background: orange;
+    border:2px solid orange;
+    margin-top:13px;
+    color:white;
+    font-size:14px;
+    border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+}
+.btn:focus{
+    outline:none;
+}
+.srch:focus{
+    outline:none;
+}
+    </style>
+</head>
+<body background-image="C:\Users\VENKATESH\OneDrive\Documents\WhatsApp.jpg">
+   
+    <div class="main">
+        <div class="navbar">
+        
+            <div class="icon">
+            <h2 class="logo">TAPPS</h2>
+            </div>
+            <div class="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a  href="#">Lands</a></li>
+                <li><a href="#">Plots/commercial</a></li>
+                <li><a href="#">Funding</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <input class="srch" type="search " name="" placeholder="Type to Search">
+            <a href="#"><button class="btn">Search</button></a>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
